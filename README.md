@@ -4,5 +4,6 @@ A network console for robots.
 # TODO
  - [X] remove some errors
  - [X] ls command
- - [ ] output console
+ - [X] output console
+ - [ ] comments (I'm lazy)
  - [ ] docs
