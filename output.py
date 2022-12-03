@@ -1,3 +1,4 @@
+# Simple socket server for robot.py output
 import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(('localhost', 5002))
