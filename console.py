@@ -15,13 +15,18 @@ while True:
 
     if message.startswith("upload "):
         filename = message[7:]
-        file = open(filename, "r")
+        upload = True
+        try:
+            file = open(filename, "r")
+        except:
+            upload = False
+            
+        if upload:
+            while chunk := file.read(514):
+                sleep(.1)
+                s.send(chunk.encode())
 
-        while chunk := file.read(514):
-            sleep(.1)
-            s.send(chunk.encode())
-        
-        file.close()
+                file.close()
 
         s.send("EOF".encode())
 

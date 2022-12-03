@@ -2,6 +2,7 @@
 A network console for robots.
 
 # TODO
- * remove some errors
- * ls command
- * docs
+ - [X] remove some errors
+ - [X] ls command
+ - [] output console
+ - [] docs

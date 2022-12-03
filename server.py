@@ -61,6 +61,8 @@ while 1:
             conn.send("conclose".encode())
             conn.close()
             s.close()
+            runpro = False
+            pro.join()
             sys.exit()
         elif data.decode().startswith("echo "):
             conn.send(data[5:])
@@ -76,6 +78,15 @@ while 1:
                 else:
                     file.close()
                     break
+        elif data.decode() == "ls":
+            files = ""
+            fileslist = os.listdir()
+            for file in fileslist:
+                files += file + "\n"
+
+            #TODO: if many files are included in the list it cuts off because of the the client's buffer size.
+            conn.send(files.encode())
+
         elif data.decode().startswith("rm "):
             filename = data.decode()[3:]
             try:
